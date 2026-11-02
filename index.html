@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Thanh Xuân Có Nhau — Trang kỷ niệm của 6 người bạn thân với những khoảnh khắc đẹp và hài hước.">
+  <title>Thanh Xuân Có Nhau — 6 Mảnh Ghép Kỷ Niệm</title>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="theme.bundle.css">
+</head>
+
+<body>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║   GATE — Màn hình xác thực cổng vào  ║
+       ╚══════════════════════════════════════╝ -->
+  <div id="gateOverlay" role="dialog" aria-modal="true" aria-label="Xác thực thành viên">
+    <div class="gate-card">
+      <div class="gate-icon">🔐</div>
+      <h2>Chào mừng trở lại!</h2>
+      <p class="gate-sub">Chỉ 6 thành viên của nhóm mới có thể vào đây.<br>Nhập ngày sinh của bạn để xác nhận nhé!</p>
+
+      <div class="gate-select">
+        <label>Ngày sinh của bạn</label>
+        <div class="dob-row">
+          <div class="dob-field">
+            <label for="gateDay">Ngày</label>
+            <select id="gateDay">
+              <option value="" disabled selected>—</option>
+            </select>
+          </div>
+          <div class="dob-field">
+            <label for="gateMonth">Tháng</label>
+            <select id="gateMonth">
+              <option value="" disabled selected>—</option>
+            </select>
+          </div>
+          <div class="dob-field">
+            <label for="gateYear">Năm</label>
+            <select id="gateYear">
+              <option value="" disabled selected>—</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button class="gate-btn" id="gateSubmit">
+        <i class="fa-solid fa-door-open"></i>&nbsp; Vào thôi!
+      </button>
+      <p class="gate-error" id="gateError" role="alert"></p>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════╗
+       ║   NAVIGATION     ║
+       ╚══════════════════╝ -->
+  <nav aria-label="Main navigation">
+    <div class="nav-brand">
+      <i class="fa-solid fa-infinity"></i> 6 Mảnh Ghép
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Trang Chủ</a></li>
+      <li><a href="#personal">Góc Cá Nhân</a></li>
+      <li><a href="#group">Kỷ Niệm Chung</a></li>
+      <li>
+        <div class="global-toggle-container">
+          <span id="labelNice" class="toggle-label active-nice">✨ Ảnh Đẹp</span>
+          <label class="switch" aria-label="Chuyển chế độ ảnh đẹp / ảnh dìm">
+            <input type="checkbox" id="modeToggle">
+            <span class="slider"></span>
+          </label>
+          <span id="labelFunny" class="toggle-label">🤪 Ảnh Dìm</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ╔══════════════════╗
+       ║   HERO           ║
+       ╚══════════════════╝ -->
+  <header class="hero" id="hero">
+    <div class="hero-badge reveal">
+      <i class="fa-solid fa-heart"></i> Tình bạn diệu kỳ suốt năm tháng
+    </div>
+    <h1 class="reveal">Thanh Xuân Của Chúng Ta<br><span>6 Mảnh Ghép Hoàn Hảo</span></h1>
+    <p class="reveal">4 Nam · 2 Nữ — cùng nhau đi qua bao giông bão, nụ cười và cả những khoảnh khắc "dìm hàng" bất hủ không thể nào quên!</p>
+    <div class="hero-stats reveal">
+      <div class="stat-item"><h3>06</h3><p>Thành Viên</p></div>
+      <div class="stat-item"><h3>500+</h3><p>Khoảnh Khắc</p></div>
+      <div class="stat-item"><h3>04+</h3><p>Năm Gắn Bó</p></div>
+    </div>
+  </header>
+
+  <!-- ╔══════════════════════╗
+       ║   PERSONAL SECTION   ║
+       ╚══════════════════════╝ -->
+  <section class="container" id="personal">
+    <div class="section-header reveal">
+      <h2>Góc Cá Nhân Thành Viên</h2>
+      <p>Hành trình trưởng thành của từng đứa qua từng mốc thời gian đáng nhớ</p>
+    </div>
+
+    <!-- 6 Member Navigation Tabs -->
+    <div class="members-nav reveal" id="membersNav">
+      <button class="member-tab-btn active" data-member="giang" id="tab-giang">
+        <i class="fa-solid fa-user"></i> Giang
+      </button>
+      <button class="member-tab-btn" data-member="tuan" id="tab-tuan">
+        <i class="fa-solid fa-user"></i> Tuân
+      </button>
+      <button class="member-tab-btn" data-member="lananh" id="tab-lananh">
+        <i class="fa-solid fa-user"></i> Lan Anh
+      </button>
+      <button class="member-tab-btn" data-member="dat" id="tab-dat">
+        <i class="fa-solid fa-user"></i> Đạt
+      </button>
+      <button class="member-tab-btn" data-member="tuananh" id="tab-tuananh">
+        <i class="fa-solid fa-user"></i> Tuấn Anh
+      </button>
+      <button class="member-tab-btn" data-member="quocanh" id="tab-quocanh">
+        <i class="fa-solid fa-user"></i> Quốc Anh
+      </button>
+    </div>
+
+    <!-- Member content populated by JS -->
+    <div id="memberProfileContainer" class="reveal"></div>
+  </section>
+
+  <!-- ╔══════════════════════╗
+       ║   GROUP MEMORIES     ║
+       ╚══════════════════════╝ -->
+  <section class="container" id="group" style="border-top:1px solid var(--border)">
+    <div class="section-header reveal">
+      <h2>Kỷ Niệm Chung Cả Nhóm</h2>
+      <p>Những chuyến đi chơi xa, buổi party thâu đêm và khoảnh khắc bá đạo có đủ mặt 6 đứa</p>
+    </div>
+    <div class="group-timeline" id="groupTimelineContainer"></div>
+  </section>
+
+  <!-- ╔══════════════════╗
+       ║   LIGHTBOX       ║
+       ╚══════════════════╝ -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Đóng">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="lightbox-content">
+      <div class="lightbox-img-container">
+        <img id="lightboxImg" src="" alt="Expanded Memory">
+      </div>
+      <div class="lightbox-details">
+        <div>
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxCaption"></p>
+        </div>
+        <div id="lightboxTag" class="photo-badge-type type-nice"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════╗
+       ║   FOOTER         ║
+       ╚══════════════════╝ -->
+  <footer>
+    <h3>Thanh xuân không ngắn, vì chúng ta có nhau! 🌟</h3>
+    <p>© 2026 6 Mảnh Ghép Kỷ Niệm. Designed with love and passion.</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="app.bundle.js"></script>
+</body>
+</html>
